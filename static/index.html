@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <title>Discount Ascii Warehouse</title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body ng-controller="mainCtrl">
+        <header>
+            <h1>Discount Ascii Warehouse</h1>
+            <p>Here you're sure to find a bargain on some of the finest ascii available to purchase. Be sure to peruse our selection of ascii faces in an exciting range of sizes and prices.</p>
+            <p>But first, a word from our sponsors:</p>
+            <script>
+                document.write('<img class="ad" src="/ad/?r=' + Math.floor(Math.random()*1000) + '"/>');
+            </script>
+        </header>
+
+        <section class="products" ng-class="{loadingNone:loading}">
+
+
+            <!--...LOADING -->
+            <img src="imgs/ajax-loader.gif" class="loader" ng-if="loading">
+
+            <!--HEADERS -->
+            <div gridheader></div>
+
+            <!--PRODUCTS GOES HERE -->
+            <div gridbody scroll="getMore(scrollData)" ng-class="{ loading: loading, scrolled:true }" ></div>
+
+            <!--END OF DATA-->
+            <div gridbottom></div>
+
+
+
+        </section>
+
+
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-relative-date/angular-relative-date.js"></script>
+        <script src="bower_components/zepto/zepto.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/directives.js"></script>
+    </body>
+</html>

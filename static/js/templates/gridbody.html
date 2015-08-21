@@ -1,0 +1,29 @@
+<table >
+    <!-- tricky way to set headers width and make scrollable tbody-->
+    <thead ng-if="false">
+        <tr>
+            <th >#</th>
+            <th>FACE</th>
+            <th >SIZE</th>
+            <th >PRICE</th>
+            <th>DATE</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat-start="product in products | orderBy:sort " >
+            <td >{{product.id }}</td>
+            <td class="center" style="font-size: {{product.size}}">{{product.face}}</td>
+            <td class="right">{{product.size}}</td>
+            <td class="right">{{product.price | currency}}</td>
+            <td class="right">{{product.date | relativeDate | date:'MM/dd/yyyy'}}</td>
+        </tr>
+
+        <!--ADVERTISEMENT-->
+        <tr ng-repeat-end ng-if="(1+$index)%20==0">
+            <td colspan="5" >
+                <img class="ad adv" ng-src="{{ src }}" ng-init="src=getAdv()"/>
+            </td>
+        </tr>
+    </tbody>
+</table>

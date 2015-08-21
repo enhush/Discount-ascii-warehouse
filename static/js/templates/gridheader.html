@@ -1,0 +1,39 @@
+<table style="position: absolute;z-index: 10">
+    <thead >
+        <tr>
+            <th ng-click="sortBy('id')" >
+                <span>#</span>
+                <span class="icon inc" ng-show="sort!=='id'"></span>
+                <span class="icon desc"></span>
+            </th>
+            <th>
+                <span>FACE</span>
+            </th>
+            <th ng-click="sortBy('size')">
+                <span>SIZE</span>
+                <span class="icon inc" ng-show="sort!=='size'"></span>
+                <span class="icon desc"></span>
+            </th>
+            <th ng-click="sortBy('price')">
+                <span>PRICE</span>
+                <span class="icon inc" ng-show="sort!=='price'"></span>
+                <span class="icon desc"></span>
+            </th>
+            <th>
+                <span>DATE</span>
+            </th>
+        </tr>
+    </thead>
+
+    <!-- tricky way to set headers width and make scrollable tbody-->
+    <tbody style="visibility: hidden" >
+        <tr >
+            <td >{{products[0].id}}</td>
+            <td class="center">{{products[0].face}}</td>
+            <td class="right">{{products[0].size}}</td>
+            <td class="right">{{products[0].price}}</td>
+            <td class="right">{{products[0].date | relativeDate | date:'MM/dd/yyyy'}}</td>
+        </tr>
+
+    </tbody>
+</table>
